@@ -7,7 +7,7 @@
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
 
     <style>
-        body{
+        body {
             color: var(--tg-theme-text-color);
             background: var(--tg-theme-bg-color);
             display: flex;
@@ -16,93 +16,47 @@
             font-size: 18px;
         }
 
-        .hint{
+        .hint {
             color: var(--tg-theme-hint-color);
         }
 
-        .link{
+        .link {
             color: var(--tg-theme-link-color);
         }
 
-        .button{
+        .button {
             background: var(--tg-theme-button-color);
             color: var(--tg-theme-button-text-color);
             border: none;
             font-size: 18px;
         }
 
-        .button:not(:last-child){
+        .button:not(:last-child) {
             margin-bottom: 20px
-        }
-
-        #usercard{
-            text-align: center;
         }
     </style>
 </head>
 
 <body>
-<div id="usercard"> 
-</div>
-<p>Just text</p> 
-<a class="link" href="https://mihailgok.ru">Link</a>
-<p class="hint">Some little hint</p> 
-<button id="btn" class="button">Show/Hide Main Button</button>
-<button id="btnED" class="button">Enable/Disable Main Button</button>
+<label for="min_fdv"></label>
+<input type="number" step="any" placeholder="Min FDV" id="min_fdv" />
 </body>
 
 <script>
-    let tg = window.Telegram.WebApp; 
+    let tg = window.Telegram.WebApp;
 
-    tg.expand(); 
+    tg.expand();
 
-    tg.MainButton.text = "Changed Text"; 
-    tg.MainButton.setText("Changed Text1"); 
-    tg.MainButton.textColor = "#F55353"; 
-    tg.MainButton.color = "#143F6B"; 
-    tg.MainButton.setParams({"color": "#143F6B"}); 
+    tg.MainButton.text = "Apply filters";
+    tg.MainButton.show()
 
-    let btn = document.getElementById("btn"); 
-
-    btn.addEventListener('click', function(){ 
-        if (tg.MainButton.isVisible){ 
-            tg.MainButton.hide() 
-        }
-        else{ 
-            tg.MainButton.show() 
-        }
+    Telegram.WebApp.onEvent('mainButtonClicked', function () {
+        const min_fdv = document.getElementById('min_fdv').value;
+        let data = {
+            min_fdv: min_fdv
+        };
+        tg.sendData(JSON.stringify(data));
     });
-
-    let btnED = document.getElementById("btnED"); 
-    btnED.addEventListener('click', function(){ 
-        if (tg.MainButton.isActive){ 
-            tg.MainButton.setParams({"color": "#E0FFFF"}); 
-            tg.MainButton.disable() 
-        }
-        else{ 
-            tg.MainButton.setParams({"color": "#143F6B"}); 
-            tg.MainButton.enable() 
-        }
-    });
-
-    Telegram.WebApp.onEvent('mainButtonClicked', function(){
-        tg.sendData("some string that we need to send");
-        
-    });
-
-
-    let usercard = document.getElementById("usercard"); 
-
-    let profName = document.createElement('p'); 
-    profName.innerText = `${tg.initDataUnsafe.user.first_name}
-   ${tg.initDataUnsafe.user.last_name}
-   ${tg.initDataUnsafe.user.username} (${tg.initDataUnsafe.user.language_code})`;
-    
-    usercard.appendChild(profName); 
-
-    let userid = document.createElement('p'); 
-    userid.innerText = `${tg.initDataUnsafe.user.id}`; 
-    usercard.appendChild(userid); 
 
 </script>
 </html>
