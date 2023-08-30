@@ -2,45 +2,242 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="MobileOptimized" content="176"/>
+    <meta name="HandheldFriendly" content="True"/>
     <title>Test Telegram WebApps API</title>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
 
+    <script>
+        function setThemeClass() {
+            document.documentElement.className = Telegram.WebApp.colorScheme;
+        }
+
+        Telegram.WebApp.onEvent('themeChanged', setThemeClass);
+        setThemeClass();
+    </script>
     <style>
         body {
-            color: var(--tg-theme-text-color);
-            background: var(--tg-theme-bg-color);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            font-size: 18px;
         }
 
-        .hint {
-            color: var(--tg-theme-hint-color);
+        .main-container {
+            padding: 15px;
         }
 
-        .link {
-            color: var(--tg-theme-link-color);
+        section {
+            background-color: var(--tg-theme-secondary-bg-color, #efefef);
+            padding: 5px;
+            text-align: center;
         }
 
-        .button {
-            background: var(--tg-theme-button-color);
-            color: var(--tg-theme-button-text-color);
-            border: none;
-            font-size: 18px;
+        section .sect_row {
+            margin: 10px 0;
         }
 
-        .button:not(:last-child) {
-            margin-bottom: 20px
-        }
+
     </style>
+
 </head>
 
 <body>
-<label for="min_fdv"></label>
-<input type="number" step="any" placeholder="Min FDV" id="min_fdv" />
-</body>
+
+<section>
+    <input type="number" placeholder="Min Liquidity" id="min_liquidity"/>
+    <input type="number" placeholder="Max Liquidity" id="max_liquidity"/>
+</section>
+
+<section>
+    <input type="number" step="any" placeholder="Min Decimals Number" id="min_decimals_number"/>
+    <input type="number" step="any" placeholder="Max Decimals Number" id="max_decimals_number"/>
+</section>
+
+<section>
+    <input type="number" step="any" placeholder="Min Total Supply" id="min_total_supply"/>
+    <input type="number" step="any" placeholder="Max Total Supply" id="max_total_supply"/>
+</section>
+
+<section>
+    <input type="number" step="any" placeholder="Min Holders" id="min_holders"/>
+    <input type="number" step="any" placeholder="Max Holders" id="max_holders"/>
+</section>
+
+<section>
+    <input type="number" step="any" placeholder="Min Market Cap USD" id="min_market_cap_usd"/>
+    <input type="number" step="any" placeholder="Max Market Cap USD" id="max_market_cap_usd"/>
+</section>
+
+<section>
+    <input type="number" step="any" placeholder="Min FDV" id="min_fdv"/>
+    <input type="number" step="any" placeholder="Max FDV" id="max_fdv"/>
+</section>
+
+<section>
+    <input type="number" step="any" placeholder="Min Liquidity USD" id="min_liquidity_usd"/>
+    <input type="number" step="any" placeholder="Max Liquidity USD" id="max_liquidity_usd"/>
+</section>
+
+<section>
+    <input type="number" step="any" placeholder="Min Volume 5m" id="min_volume_5m"/>
+    <input type="number" step="any" placeholder="Max Volume 5m" id="max_volume_5m"/>
+</section>
+
+<section>
+    <input type="number" step="any" placeholder="Min Volume 1h" id="min_volume_1h"/>
+    <input type="number" step="any" placeholder="Max Volume 1h" id="max_volume_1h"/>
+</section>
+
+<section>
+    <input type="number" step="any" placeholder="Min Volume 6h" id="min_volume_6h"/>
+    <input type="number" step="any" placeholder="Max Volume 6h" id="max_volume_6h"/>
+</section>
+
+<section>
+    <input type="number" step="any" placeholder="Min Volume 24h" id="min_volume_24h"/>
+    <input type="number" step="any" placeholder="Max Volume 24h" id="max_volume_24h"/>
+</section>
+
+<section>
+    <input type="number" step="any" placeholder="Min Price Change" id="min_price_change"/>
+    <input type="number" step="any" placeholder="Max Price Change" id="max_price_change"/>
+</section>
+
+<section>
+    <input type="number" step="any" placeholder="Min Start Liquidity" id="min_start_liquidity"/>
+    <input type="number" step="any" placeholder="Max Start Liquidity" id="max_start_liquidity"/>
+</section>
+
+<section>
+    <input type="number" step="any" placeholder="Min Current Liquidity" id="min_current_liquidity"/>
+    <input type="number" step="any" placeholder="Max Current Liquidity" id="max_current_liquidity"/>
+</section>
+
+<section>
+    <input type="number" step="any" placeholder="Min Liquidity Removed" id="min_liquidity_removed"/>
+    <input type="number" step="any" placeholder="Max Liquidity Removed" id="max_liquidity_removed"/>
+</section>
+
+<section>
+    <input type="number" step="any" placeholder="Min Start Market Cap" id="min_start_mcap"/>
+    <input type="number" step="any" placeholder="Max Start Market Cap" id="max_start_mcap"/>
+</section>
+
+<section>
+    <input type="number" step="any" placeholder="Min Current Market Cap" id="min_current_mcap"/>
+    <input type="number" step="any" placeholder="Max Current Market Cap" id="max_current_mcap"/>
+</section>
+
+<section>
+    <input type="number" step="any" placeholder="Min ATH Market Cap" id="min_ath_mcap"/>
+    <input type="number" step="any" placeholder="Max ATH Market Cap" id="max_ath_mcap"/>
+</section>
+
+<section>
+    <input type="number" step="any" placeholder="Min Current Gain" id="min_current_gain"/>
+    <input type="number" step="any" placeholder="Max Current Gain" id="max_current_gain"/>
+</section>
+
+<section>
+    <input type="number" step="any" placeholder="Min ATH Gain" id="min_ath_gain"/>
+    <input type="number" step="any" placeholder="Max ATH Gain" id="max_ath_gain"/>
+</section>
+
+<section>
+    <input type="number" step="any" placeholder="Min Could Buy" id="min_could_buy"/>
+    <input type="number" step="any" placeholder="Max Could Buy" id="max_could_buy"/>
+</section>
+
+<section>
+    <input type="number" step="any" placeholder="Min Could Sell" id="min_could_sell"/>
+    <input type="number" step="any" placeholder="Max Could Sell" id="max_could_sell"/>
+</section>
+
+<section>
+    <input type="number" step="any" placeholder="Min Buy Tax" id="min_buy_tax"/>
+    <input type="number" step="any" placeholder="Max Buy Tax" id="max_buy_tax"/>
+</section>
+
+<section>
+    <input type="number" step="any" placeholder="Min Sell Tax" id="min_sell_tax"/>
+    <input type="number" step="any" placeholder="Max Sell Tax" id="max_sell_tax"/>
+</section>
+
+<section>
+    <input type="number" step="any" placeholder="Min Initial Max Buy" id="min_init_max_buy"/>
+    <input type="number" step="any" placeholder="Max Initial Max Buy" id="max_init_max_buy"/>
+</section>
+
+<section>
+    <input type="number" step="any" placeholder="Min Initial Max Buy %" id="min_init_max_buy_percentage"/>
+    <input type="number" step="any" placeholder="Max Initial Max Buy %" id="max_init_max_buy_percentage"/>
+</section>
+
+<section>
+    <input type="number" step="any" placeholder="Min Max Buy" id="min_max_buy"/>
+    <input type="number" step="any" placeholder="Max Max Buy" id="max_max_buy"/>
+</section>
+
+<section>
+    <input type="number" step="any" placeholder="Min Max Buy %" id="min_max_buy_percentage"/>
+    <input type="number" step="any" placeholder="Max Max Buy %" id="max_max_buy_percentage"/>
+</section>
+
+<section>
+    <input type="number" step="any" placeholder="Min Liquidity Locked" id="min_liquidity_locked"/>
+    <input type="number" step="any" placeholder="Max Liquidity Locked" id="max_liquidity_locked"/>
+</section>
+
+<section>
+    <input type="number" step="any" placeholder="Min Liquidity Lock Days" id="min_liquidity_lock_days"/>
+    <input type="number" step="any" placeholder="Max Liquidity Lock Days" id="max_liquidity_lock_days"/>
+</section>
+
+<section>
+    <input type="number" step="any" placeholder="Min CA Tokens Balance" id="min_ca_tokens_balance"/>
+    <input type="number" step="any" placeholder="Max CA Tokens Balance" id="max_ca_tokens_balance"/>
+</section>
+
+<section>
+    <input type="number" step="any" placeholder="Min CA Tokens Balance Percent" id="min_ca_tokens_balance_percent"/>
+    <input type="number" step="any" placeholder="Max CA Tokens Balance Percent" id="max_ca_tokens_balance_percent"/>
+</section>
+
+<section>
+    <input type="number" step="any" placeholder="Min Deployer Balance" id="min_deployer_balance"/>
+    <input type="number" step="any" placeholder="Max Deployer Balance" id="max_deployer_balance"/>
+</section>
+
+<section>
+    <input type="number" step="any" placeholder="Min Deployer Balance Percent" id="min_deployer_balance_percent"/>
+    <input type="number" step="any" placeholder="Max Deployer Balance Percent" id="max_deployer_balance_percent"/>
+</section>
+
+<section>
+    <input type="number" step="any" placeholder="Min Price in Pair" id="min_price_in_pair"/>
+    <input type="number" step="any" placeholder="Max Price in Pair" id="max_price_in_pair"/>
+</section>
+
+<section>
+    <input type="number" step="any" placeholder="Min Price in USD" id="min_price_in_usd"/>
+    <input type="number" step="any" placeholder="Max Price in USD" id="max_price_in_usd"/>
+</section>
+
+<section>
+    <input type="number" step="any" placeholder="Min Gwei Liquidity Added" id="min_gwei_liquidity_added"/>
+    <input type="number" step="any" placeholder="Max Gwei Liquidity Added" id="max_gwei_liquidity_added"/>
+</section>
+
+<section>
+    <input type="number" step="any" placeholder="Min Mooner Similarity Score" id="min_mooner_similarity_score"/>
+    <input type="number" step="any" placeholder="Max Mooner Similarity Score" id="max_mooner_similarity_score"/>
+</section>
+
+<section>
+    <input type="number" step="any" placeholder="Min Rugger Similarity Score" id="min_rugger_similarity_score"/>
+    <input type="number" step="any" placeholder="Max Rugger Similarity Score" id="max_rugger_similarity_score"/>
+</section>
 
 <script>
     let tg = window.Telegram.WebApp;
@@ -53,10 +250,166 @@
     Telegram.WebApp.onEvent('mainButtonClicked', function () {
         const min_fdv = document.getElementById('min_fdv').value;
         let data = {
-            min_fdv: min_fdv
+            "liquidity": {
+                "min": document.getElementById('min_liquidity').value,
+                "max": document.getElementById('max_liquidity').value
+            },
+            "decimals_number": {
+                "min": document.getElementById('min_decimals_number').value,
+                "max": document.getElementById('max_decimals_number').value
+            },
+            "total_supply": {
+                "min": document.getElementById('min_total_supply').value,
+                "max": document.getElementById('max_total_supply').value
+            },
+            "holders": {
+                "min": document.getElementById('min_holders').value,
+                "max": document.getElementById('max_holders').value
+            },
+            "market_cap_usd": {
+                "min": document.getElementById('min_market_cap_usd').value,
+                "max": document.getElementById('max_market_cap_usd').value
+            },
+            "fdv": {
+                "min": document.getElementById('min_fdv').value,
+                "max": document.getElementById('max_fdv').value
+            },
+            "liquidity_usd": {
+                "min": document.getElementById('min_liquidity_usd').value,
+                "max": document.getElementById('max_liquidity_usd').value
+            },
+            "volume_5m": {
+                "min": document.getElementById('min_volume_5m').value,
+                "max": document.getElementById('max_volume_5m').value
+            },
+            "volume_1h": {
+                "min": document.getElementById('min_volume_1h').value,
+                "max": document.getElementById('max_volume_1h').value
+            },
+            "volume_6h": {
+                "min": document.getElementById('min_volume_6h').value,
+                "max": document.getElementById('max_volume_6h').value
+            },
+            "volume_24h": {
+                "min": document.getElementById('min_volume_24h').value,
+                "max": document.getElementById('max_volume_24h').value
+            },
+            "price_change": {
+                "min": document.getElementById('min_price_change').value,
+                "max": document.getElementById('max_price_change').value
+            },
+            "start_liquidity": {
+                "min": document.getElementById('min_start_liquidity').value,
+                "max": document.getElementById('max_start_liquidity').value
+            },
+            "current_liquidity": {
+                "min": document.getElementById('min_current_liquidity').value,
+                "max": document.getElementById('max_current_liquidity').value
+            },
+            "liquidity_removed": {
+                "min": document.getElementById('min_liquidity_removed').value,
+                "max": document.getElementById('max_liquidity_removed').value
+            },
+            "start_mcap": {
+                "min": document.getElementById('min_start_mcap').value,
+                "max": document.getElementById('max_start_mcap').value
+            },
+            "current_mcap": {
+                "min": document.getElementById('min_current_mcap').value,
+                "max": document.getElementById('max_current_mcap').value
+            },
+            "ath_mcap": {
+                "min": document.getElementById('min_ath_mcap').value,
+                "max": document.getElementById('max_ath_mcap').value
+            },
+            "current_gain": {
+                "min": document.getElementById('min_current_gain').value,
+                "max": document.getElementById('max_current_gain').value
+            },
+            "ath_gain": {
+                "min": document.getElementById('min_ath_gain').value,
+                "max": document.getElementById('max_ath_gain').value
+            },
+            "could_buy": {
+                "min": document.getElementById('min_could_buy').value,
+                "max": document.getElementById('max_could_buy').value
+            },
+            "could_sell": {
+                "min": document.getElementById('min_could_sell').value,
+                "max": document.getElementById('max_could_sell').value
+            },
+            "buy_tax": {
+                "min": document.getElementById('min_buy_tax').value,
+                "max": document.getElementById('max_buy_tax').value
+            },
+            "sell_tax": {
+                "min": document.getElementById('min_sell_tax').value,
+                "max": document.getElementById('max_sell_tax').value
+            },
+            "init_max_buy": {
+                "min": document.getElementById('min_init_max_buy').value,
+                "max": document.getElementById('max_init_max_buy').value
+            },
+            "init_max_buy_percentage": {
+                "min": document.getElementById('min_init_max_buy_percentage').value,
+                "max": document.getElementById('max_init_max_buy_percentage').value
+            },
+            "max_buy": {
+                "min": document.getElementById('min_max_buy').value,
+                "max": document.getElementById('max_max_buy').value
+            },
+            "max_buy_percentage": {
+                "min": document.getElementById('min_max_buy_percentage').value,
+                "max": document.getElementById('max_max_buy_percentage').value
+            },
+            "liquidity_locked": {
+                "min": document.getElementById('min_liquidity_locked').value,
+                "max": document.getElementById('max_liquidity_locked').value
+            },
+            "liquidity_lock_days": {
+                "min": document.getElementById('min_liquidity_lock_days').value,
+                "max": document.getElementById('max_liquidity_lock_days').value
+            },
+            "ca_tokens_balance": {
+                "min": document.getElementById('min_ca_tokens_balance').value,
+                "max": document.getElementById('max_ca_tokens_balance').value
+            },
+            "ca_tokens_balance_percent": {
+                "min": document.getElementById('min_ca_tokens_balance_percent').value,
+                "max": document.getElementById('max_ca_tokens_balance_percent').value
+            },
+            "deployer_balance": {
+                "min": document.getElementById('min_deployer_balance').value,
+                "max": document.getElementById('max_deployer_balance').value
+            },
+            "deployer_balance_percent": {
+                "min": document.getElementById('min_deployer_balance_percent').value,
+                "max": document.getElementById('max_deployer_balance_percent').value
+            },
+            "price_in_pair": {
+                "min": document.getElementById('min_price_in_pair').value,
+                "max": document.getElementById('max_price_in_pair').value
+            },
+            "price_in_usd": {
+                "min": document.getElementById('min_price_in_usd').value,
+                "max": document.getElementById('max_price_in_usd').value
+            },
+            "gwei_liquidity_added": {
+                "min": document.getElementById('min_gwei_liquidity_added').value,
+                "max": document.getElementById('max_gwei_liquidity_added').value
+            },
+            "mooner_similarity_score": {
+                "min": document.getElementById('min_mooner_similarity_score').value,
+                "max": document.getElementById('max_mooner_similarity_score').value
+            },
+            "rugger_similarity_score": {
+                "min": document.getElementById('min_rugger_similarity_score').value,
+                "max": document.getElementById('max_rugger_similarity_score').value
+            }
         };
         tg.sendData(JSON.stringify(data));
     });
 
 </script>
+</body>
 </html>
