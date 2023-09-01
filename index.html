@@ -36,6 +36,11 @@
 
 <body>
 <section>
+    <input type="number" step="any" placeholder="Min Liquidity USD" id="min_liquidity_usd"/>
+    <input type="number" step="any" placeholder="Max Liquidity USD" id="max_liquidity_usd"/>
+</section>
+
+<section>
     <input type="number" placeholder="Min Liquidity" id="min_liquidity"/>
     <input type="number" placeholder="Max Liquidity" id="max_liquidity"/>
 </section>
@@ -63,11 +68,6 @@
 <section>
     <input type="number" step="any" placeholder="Min FDV" id="min_fdv"/>
     <input type="number" step="any" placeholder="Max FDV" id="max_fdv"/>
-</section>
-
-<section>
-    <input type="number" step="any" placeholder="Min Liquidity USD" id="min_liquidity_usd"/>
-    <input type="number" step="any" placeholder="Max Liquidity USD" id="max_liquidity_usd"/>
 </section>
 
 <section>
@@ -241,9 +241,9 @@
     Telegram.WebApp.onEvent('mainButtonClicked', function () {
         const min_fdv = document.getElementById('min_fdv').value;
         let data = {
-            "liquidity": {
-                "min": document.getElementById('min_liquidity').value,
-                "max": document.getElementById('max_liquidity').value
+            "liquidity_usd": {
+                "min": document.getElementById('min_liquidity_usd').value,
+                "max": document.getElementById('max_liquidity_usd').value
             },
             "decimals_number": {
                 "min": document.getElementById('min_decimals_number').value,
@@ -264,10 +264,6 @@
             "fdv": {
                 "min": document.getElementById('min_fdv').value,
                 "max": document.getElementById('max_fdv').value
-            },
-            "liquidity_usd": {
-                "min": document.getElementById('min_liquidity_usd').value,
-                "max": document.getElementById('max_liquidity_usd').value
             },
             "volume_5m": {
                 "min": document.getElementById('min_volume_5m').value,
