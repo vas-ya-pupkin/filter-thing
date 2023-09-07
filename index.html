@@ -337,8 +337,8 @@
                 "max": document.getElementById('max_current_liquidity').value
             },
             "liquidity_removed": {
-                true: document.getElementById('liquidity_removed_true').value,
-                false: document.getElementById('liquidity_removed_false').value
+                true: document.getElementById('liquidity_removed_true').checked,
+                false: document.getElementById('liquidity_removed_false').checked
             },
             "start_mcap": {
                 "min": document.getElementById('min_start_mcap').value,
@@ -393,12 +393,12 @@
                 "max": document.getElementById('max_max_buy_percentage').value
             },
             "liquidity_locked": {
-                true: document.getElementById('liquidity_locked_true').value,
-                false: document.getElementById('liquidity_locked_false').value
+                true: document.getElementById('liquidity_locked_true').checked,
+                false: document.getElementById('liquidity_locked_false').checked
             },
             "optimization": {
-                true: document.getElementById('optimization_true').value,
-                false: document.getElementById('optimization_false').value
+                true: document.getElementById('optimization_true').checked,
+                false: document.getElementById('optimization_false').checked
             },
             "liquidity_lock_days": {
                 "min": document.getElementById('min_liquidity_lock_days').value,
@@ -440,7 +440,7 @@
                 "min": document.getElementById('min_rugger_similarity_score').value,
                 "max": document.getElementById('max_rugger_similarity_score').value
             },
-            "approved_funding_wallets": document.getElementById('approved_funding_wallets').value,
+            "approved_funding_wallets": document.getElementById('approved_funding_wallets').checked,
             "compiler_version": document.getElementById('compiler_versions').value.split(',').map(function (item) {
                 return item.trim();
             }),
