@@ -23,11 +23,11 @@
         section {
             background-color: var(--tg-theme-secondary-bg-color, #efefef);
             padding: 1px;
-            text-align: center;
+            /*text-align: center;*/
         }
 
         section input {
-            width: 40%;
+            width: 49%;
             margin: 5px 0;
         }
     </style>
@@ -35,6 +35,64 @@
 </head>
 
 <body>
+    <input type="checkbox" id="liquidity_removed_true"/>
+    <label for="liquidity_removed_true">Liquidity Removed</label>
+    <br>
+    <input type="checkbox" id="liquidity_removed_false"/>
+    <label for="liquidity_removed_false">Liquidity Not Removed</label>
+    <br>
+    <br>
+
+    <input type="checkbox" id="liquidity_locked_true"/>
+    <label for="liquidity_locked_true">Liquidity Locked</label>
+    <br>
+    <input type="checkbox" id="liquidity_locked_false"/>
+    <label for="liquidity_locked_false">Liquidity Not Locked</label>
+    <br>
+    <br>
+    <input type="checkbox" id="optimization_true"/>
+    <label for="optimization_true">Optimization Used</label>
+    <br>
+    <input type="checkbox" id="optimization_false"/>
+    <label for="optimization_false">Optimization Not Used</label>
+    <br>
+    <br>
+    <input type="checkbox" id="approved_funding_wallets"/>
+    <label for="approved_funding_wallets">Only Approved Funding Wallets</label>
+    <br>
+
+    <hr>
+
+<section>
+    <input type="text" placeholder="Compiler Version(s)" id="compiler_versions"/>
+    <input type="text" placeholder="License Type(s)" id="license_types"/>
+</section>
+
+
+<section>
+    <input type="text" placeholder="Comment(s)" id="comments"/>
+    <input type="text" placeholder="Tx Type(s)" id="tx_types"/>
+</section>
+
+<hr>
+
+<section>
+    <input type="number" step="1" placeholder="Min Mooned Projects" id="min_mooned_projects"/>
+    <input type="number" step="1" placeholder="Max Mooned Projects" id="max_mooned_projects"/>
+</section>
+
+<section>
+    <input type="number" step="1" placeholder="Min Rugged Projects" id="min_rugged_projects"/>
+    <input type="number" step="1" placeholder="Max Rugged Projects" id="max_rugged_projects"/>
+</section>
+
+<section>
+    <input type="number" step="1" placeholder="Min Unknown Projects" id="min_unknown_projects"/>
+    <input type="number" step="1" placeholder="Max Unknown Projects" id="max_unknown_projects"/>
+</section>
+
+<hr>
+
 <section>
     <input type="number" step="any" placeholder="Min Liquidity USD" id="min_liquidity_usd"/>
     <input type="number" step="any" placeholder="Max Liquidity USD" id="max_liquidity_usd"/>
@@ -56,8 +114,8 @@
 </section>
 
 <section>
-    <input type="number" step="any" placeholder="Min Market Cap USD" id="min_market_cap_usd"/>
-    <input type="number" step="any" placeholder="Max Market Cap USD" id="max_market_cap_usd"/>
+    <input type="number" step="any" placeholder="Min MCap USD" id="min_market_cap_usd"/>
+    <input type="number" step="any" placeholder="Max MCap USD" id="max_market_cap_usd"/>
 </section>
 
 <section>
@@ -98,11 +156,6 @@
 <section>
     <input type="number" step="any" placeholder="Min Current Liquidity" id="min_current_liquidity"/>
     <input type="number" step="any" placeholder="Max Current Liquidity" id="max_current_liquidity"/>
-</section>
-
-<section>
-    <input type="number" step="any" placeholder="Min Liquidity Removed" id="min_liquidity_removed"/>
-    <input type="number" step="any" placeholder="Max Liquidity Removed" id="max_liquidity_removed"/>
 </section>
 
 <section>
@@ -156,8 +209,8 @@
 </section>
 
 <section>
-    <input type="number" step="any" placeholder="Min Initial Max Buy %" id="min_init_max_buy_percentage"/>
-    <input type="number" step="any" placeholder="Max Initial Max Buy %" id="max_init_max_buy_percentage"/>
+    <input type="number" step="any" placeholder="Min % Init. Max Buy" id="min_init_max_buy_percentage"/>
+    <input type="number" step="any" placeholder="Max % Init. Max Buy" id="max_init_max_buy_percentage"/>
 </section>
 
 <section>
@@ -171,13 +224,8 @@
 </section>
 
 <section>
-    <input type="number" step="any" placeholder="Min Liquidity Locked" id="min_liquidity_locked"/>
-    <input type="number" step="any" placeholder="Max Liquidity Locked" id="max_liquidity_locked"/>
-</section>
-
-<section>
-    <input type="number" step="any" placeholder="Min Liquidity Lock Days" id="min_liquidity_lock_days"/>
-    <input type="number" step="any" placeholder="Max Liquidity Lock Days" id="max_liquidity_lock_days"/>
+    <input type="number" step="any" placeholder="Min Liq. Lock Days" id="min_liquidity_lock_days"/>
+    <input type="number" step="any" placeholder="Max Liq. Lock Days" id="max_liquidity_lock_days"/>
 </section>
 
 <section>
@@ -186,8 +234,8 @@
 </section>
 
 <section>
-    <input type="number" step="any" placeholder="Min CA Tokens Balance Percent" id="min_ca_tokens_balance_percent"/>
-    <input type="number" step="any" placeholder="Max CA Tokens Balance Percent" id="max_ca_tokens_balance_percent"/>
+    <input type="number" step="any" placeholder="Min % CA Tokens Balance" id="min_ca_tokens_balance_percent"/>
+    <input type="number" step="any" placeholder="Max % CA Tokens Balance" id="max_ca_tokens_balance_percent"/>
 </section>
 
 <section>
@@ -196,8 +244,8 @@
 </section>
 
 <section>
-    <input type="number" step="any" placeholder="Min Deployer Balance Percent" id="min_deployer_balance_percent"/>
-    <input type="number" step="any" placeholder="Max Deployer Balance Percent" id="max_deployer_balance_percent"/>
+    <input type="number" step="any" placeholder="Min % Deployer Balance" id="min_deployer_balance_percent"/>
+    <input type="number" step="any" placeholder="Max % Deployer Balance" id="max_deployer_balance_percent"/>
 </section>
 
 <section>
@@ -211,18 +259,18 @@
 </section>
 
 <section>
-    <input type="number" step="any" placeholder="Min Gwei Liquidity Added" id="min_gwei_liquidity_added"/>
-    <input type="number" step="any" placeholder="Max Gwei Liquidity Added" id="max_gwei_liquidity_added"/>
+    <input type="number" step="any" placeholder="Min Gwei Liq. Added" id="min_gwei_liquidity_added"/>
+    <input type="number" step="any" placeholder="Max Gwei Liq. Added" id="max_gwei_liquidity_added"/>
 </section>
 
 <section>
-    <input type="number" step="any" placeholder="Min Mooner Similarity Score" id="min_mooner_similarity_score"/>
-    <input type="number" step="any" placeholder="Max Mooner Similarity Score" id="max_mooner_similarity_score"/>
+    <input type="number" step="any" placeholder="Min Mooner Sim. Score" id="min_mooner_similarity_score"/>
+    <input type="number" step="any" placeholder="Max Mooner Sim. Score" id="max_mooner_similarity_score"/>
 </section>
 
 <section>
-    <input type="number" step="any" placeholder="Min Rugger Similarity Score" id="min_rugger_similarity_score"/>
-    <input type="number" step="any" placeholder="Max Rugger Similarity Score" id="max_rugger_similarity_score"/>
+    <input type="number" step="any" placeholder="Min Rugger Sim. Score" id="min_rugger_similarity_score"/>
+    <input type="number" step="any" placeholder="Max Rugger Sim. Score" id="max_rugger_similarity_score"/>
 </section>
 
 <script>
@@ -289,8 +337,8 @@
                 "max": document.getElementById('max_current_liquidity').value
             },
             "liquidity_removed": {
-                "min": document.getElementById('min_liquidity_removed').value,
-                "max": document.getElementById('max_liquidity_removed').value
+                true: document.getElementById('liquidity_removed_true').value,
+                false: document.getElementById('liquidity_removed_false').value
             },
             "start_mcap": {
                 "min": document.getElementById('min_start_mcap').value,
@@ -345,8 +393,12 @@
                 "max": document.getElementById('max_max_buy_percentage').value
             },
             "liquidity_locked": {
-                "min": document.getElementById('min_liquidity_locked').value,
-                "max": document.getElementById('max_liquidity_locked').value
+                true: document.getElementById('liquidity_locked_true').value,
+                false: document.getElementById('liquidity_locked_false').value
+            },
+            "optimization": {
+                true: document.getElementById('optimization_true').value,
+                false: document.getElementById('optimization_false').value
             },
             "liquidity_lock_days": {
                 "min": document.getElementById('min_liquidity_lock_days').value,
@@ -387,7 +439,20 @@
             "rugger_similarity_score": {
                 "min": document.getElementById('min_rugger_similarity_score').value,
                 "max": document.getElementById('max_rugger_similarity_score').value
-            }
+            },
+            "approved_funding_wallets": document.getElementById('approved_funding_wallets').value,
+            "compiler_version": document.getElementById('compiler_versions').value.split(',').map(function (item) {
+                return item.trim();
+            }),
+            "license_type": document.getElementById('license_types').value.split(',').map(function (item) {
+                return item.trim();
+            }),
+            "comment": document.getElementById('comments').value.split(',').map(function (item) {
+                return item.trim();
+            }),
+            "tx_types": document.getElementById('tx_types').value.split(',').map(function (item) {
+                return item.trim();
+            }),
         };
         tg.sendData(JSON.stringify(data));
     });
