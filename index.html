@@ -76,6 +76,13 @@
 
 <hr>
 
+
+<section>
+    <input type="number" step="1" placeholder="Min Total Projects" id="min_total_projects"/>
+    <input type="number" step="1" placeholder="Max Total Projects" id="max_total_projects"/>
+</section>
+
+
 <section>
     <input type="number" step="1" placeholder="Min Mooned Projects" id="min_mooned_projects"/>
     <input type="number" step="1" placeholder="Max Mooned Projects" id="max_mooned_projects"/>
@@ -451,6 +458,10 @@
             "unknown_tokens": {
                 "min": document.getElementById('min_unknown_projects').value,
                 "max": document.getElementById('max_unknown_projects').value
+            },
+            "total_projects": {
+                "min": document.getElementById('min_total_projects').value,
+                "max": document.getElementById('max_total_projects').value
             },
             "approved_funding_wallets": document.getElementById('approved_funding_wallets').checked,
             "compiler_version": document.getElementById('compiler_versions').value.split(',').map(function (item) {
